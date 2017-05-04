@@ -13,23 +13,17 @@ import be.pxl.service.CustomerServiceImpl;
 @ComponentScan({"be.pxl"})
 @PropertySource("app.properties")
 public class AppConfig {
-
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderconfigurer() {
-		return new PropertySourcesPlaceholderConfigurer();
+	
+	@Bean(name="customerService")
+	public CustomerService getCustomerService() {
+		CustomerServiceImpl service = new CustomerServiceImpl();
+		service.setCustomerRepository(getCustomerRepository());
+		return service;
 	}
 	
-	//@Bean(name="customerService")
-	//public CustomerService getCustomerService() {
-		//CustomerServiceImpl service = new CustomerServiceImpl(getCustomerRepository());
-	//	CustomerServiceImpl service = new CustomerServiceImpl();
-		//service.setCustomerRepository(getCustomerRepository());
-	//	return service;
-	//}
-	
-	//@Bean(name="customerRepository")
-	//public CustomerRepository getCustomerRepository() {
-	//	return new HibernateCustomerRepositoryImpl();
-	//}
+	@Bean(name="customerRepository")
+	public CustomerRepository getCustomerRepository() {
+		return new HibernateCustomerRepositoryImpl();
+	}
 	
 }

@@ -11,7 +11,7 @@ import be.pxl.repository.CustomerRepository;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
-	//@Autowired
+	@Autowired
 	private CustomerRepository customerRepository;
 	
 	@Autowired

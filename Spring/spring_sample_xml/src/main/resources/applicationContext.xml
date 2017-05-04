@@ -15,11 +15,5 @@
 		  class="be.pxl.service.CustomerServiceImpl"
 		  autowire="byName"
 		  scope="prototype">
-		  <!--scope="singleton-->
-		  <!--autowire="byType"-->
-		  <!--autowire="constructor"-->
-		  <!--<property name="customerRepository" ref="customerRepository"/>-->
-		  <!--<constructor-arg index="0" ref="customerRepository"/>-->
-		  
 	</bean>
 </beans>
